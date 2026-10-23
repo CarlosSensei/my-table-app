@@ -1,0 +1,1 @@
+import{Yt as re,ct as Yi,i as B,t as $}from"./chunk-D811xe0b.js";var v=class t{reservations=Yi([]);addReservation(a){this.reservations.update(e=>[...e,a])}cancelReservation(a){this.reservations.update(e=>e.map(r=>r.id===a?$(B({},r),{status:`CANCELLED`}):r))}static ɵfac=function(e){return new(e||t)};static ɵprov=re({token:t,factory:t.ɵfac,providedIn:`root`})};export{v as t};
