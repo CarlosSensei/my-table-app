@@ -1,0 +1,103 @@
+<div class="profile-container">
+
+  <section class="profile-hero">
+
+    <div class="avatar">
+      {{ authService.currentUser()?.name?.charAt(0) }}
+    </div>
+
+    <div class="user-info">
+
+      <h1>
+        Hola,
+        {{ authService.currentUser()?.name }}
+        👋
+      </h1>
+
+      <p>
+        Gestiona tu cuenta, preferencias y reservas.
+      </p>
+
+      <span class="role-badge">
+        {{ authService.currentUser()?.role }}
+      </span>
+
+    </div>
+
+  </section>
+
+  <section class="quick-actions">
+
+    <a
+      routerLink="/profile/edit"
+      class="action-card">
+
+      <span class="icon">👤</span>
+
+      <h3>Editar perfil</h3>
+
+      <p>
+        Actualiza tus datos personales.
+      </p>
+
+    </a>
+
+    <a
+      routerLink="/profile/preferences"
+      class="action-card">
+
+      <span class="icon">⚙️</span>
+
+      <h3>Preferencias</h3>
+
+      <p>
+        Personaliza tu experiencia.
+      </p>
+
+    </a>
+
+    <a
+      routerLink="/reservations"
+      class="action-card">
+
+      <span class="icon">🍽️</span>
+
+      <h3>Mis reservas</h3>
+
+      <p>
+        Consulta tus próximas visitas.
+      </p>
+
+    </a>
+
+  </section>
+
+  <section class="stats-section">
+
+    <div class="stat-card">
+
+      <h2>12</h2>
+
+      <p>Reservas realizadas</p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h2>4</h2>
+
+      <p>Restaurantes favoritos</p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h2>4.8 ⭐</h2>
+
+      <p>Valoración media</p>
+
+    </div>
+
+  </section>
+
+</div>

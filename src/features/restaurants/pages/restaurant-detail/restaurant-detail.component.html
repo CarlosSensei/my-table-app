@@ -1,0 +1,100 @@
+@if (restaurant) {
+
+<a class="close-button" routerLink="/restaurants">
+  ✕
+</a>
+
+<div class="container">
+  <h1>{{ restaurant.name }}</h1>
+
+  <img
+    [src]="restaurant.imageUrl"
+    [alt]="restaurant.name">
+
+  <div class="restaurant-info">
+
+    <div class="restaurant-description">
+      {{ restaurant.description }}
+    </div>
+
+    <div class="info-grid">
+
+      <div class="info-card">
+        <span class="info-label">Tipo de cocina</span>
+        <span class="info-value">
+          {{ restaurant.cuisineType }}
+        </span>
+      </div>
+
+      <div class="info-card">
+        <span class="info-label">Ciudad</span>
+        <span class="info-value">
+          {{ restaurant.city }}
+        </span>
+      </div>
+
+      <div class="info-card">
+        <span class="info-label">Dirección</span>
+        <span class="info-value">
+          {{ restaurant.address }}
+        </span>
+      </div>
+
+      <div class="info-card">
+        <span class="info-label">Horario</span>
+        <span class="info-value">
+          {{ restaurant.openingHour }} - {{ restaurant.closingHour }}
+        </span>
+      </div>
+
+      <div class="info-card">
+        <span class="info-label">Teléfono</span>
+        <span class="info-value">
+          {{ restaurant.phone }}
+        </span>
+      </div>
+
+      <div class="info-card">
+        <span class="info-label">Email</span>
+        <span class="info-value">
+          {{ restaurant.email }}
+        </span>
+      </div>
+
+      <div class="info-card">
+        <span class="info-label">Precio medio</span>
+        <span class="info-value">
+          {{ restaurant.averagePrice }} €
+        </span>
+      </div>
+
+      <div class="info-card">
+        <span class="info-label">Mesas disponibles</span>
+        <span class="info-value">
+          {{ restaurant.availableTables }}
+        </span>
+      </div>
+
+      <div class="info-card">
+        <span class="info-label">Valoración</span>
+        <span class="info-value">
+          ⭐ {{ restaurant.rating }}
+        </span>
+      </div>
+
+    </div>
+
+    <a
+      class="reserve-button"
+      [routerLink]="[
+        '/reservations/create',
+        restaurant.id
+      ]">
+
+      Reservar mesa
+
+    </a>
+  </div>
+</div>
+
+}

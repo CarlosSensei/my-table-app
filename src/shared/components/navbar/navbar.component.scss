@@ -1,0 +1,63 @@
+.navbar {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--card-background);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.logo a {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.nav-links li:hover {
+  font-weight: bolder;
+  background-color: var(--primary-hover);
+  border-radius: 20px;
+  padding: 15px;
+}
+
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-smooth);
+}
+
+.nav-links a:hover {
+  color: var(--text-contrast);
+}
+
+.active {
+  color: var(--primary-color) !important;
+}
+
+.logout-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text-smooth);
+  font-size: 1.2rem;
+}
+
+.logout-btn:hover {
+  color: var(--text-contrast);  
+}

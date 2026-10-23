@@ -1,0 +1,25 @@
+<div class="reservas">    
+    
+    <h1>Mis reservas</h1>
+
+    @for(reservation of service.reservations(); track reservation.id){
+
+        <div class="reservation-card">
+
+            <h3>{{ reservation.restaurantName }}</h3>
+            
+            <p>{{ reservation.reservationDate }}</p>
+            <p>{{ reservation.reservationTime }}</p>
+            <p>{{ reservation.guests }} personas</p>
+            <p>{{ reservation.status }}</p>
+
+            @if(reservation.status !== 'CANCELLED'){
+
+            <button (click)="service.cancelReservation(
+                reservation.id)">Cancelar</button>
+            }
+
+        </div>
+    }
+
+</div>

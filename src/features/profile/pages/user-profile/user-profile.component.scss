@@ -1,0 +1,41 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 500px;
+  background: var(--card-background);
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,.08);
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary-color);
+  color: var(--text-contrast);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.role {
+  color: var(--subtitle);
+  margin-top: .5rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}

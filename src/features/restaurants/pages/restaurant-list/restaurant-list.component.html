@@ -1,0 +1,30 @@
+<div class="container">
+
+  <div class="restaurant-list">
+
+    <h1>Restaurantes</h1>
+
+    <app-restaurant-search
+      (searchChange)="search.set($event)">
+    </app-restaurant-search>
+
+    @if(search().trim() !== '' && restaurants().length === 0){
+
+      <p class="empty-state">Vaya! No se encontraron restaurantes.</p>
+    }
+
+    <div class="grid">
+
+      @for (restaurant of restaurants(); track restaurant.id) {
+
+        <app-restaurant-card
+          [restaurant]="restaurant">
+        </app-restaurant-card>
+
+      }
+
+    </div>
+
+  </div>
+
+</div>

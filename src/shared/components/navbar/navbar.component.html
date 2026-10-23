@@ -1,0 +1,40 @@
+<nav class="navbar">
+
+  <div class="logo">
+    <a routerLink="/">MyTableApp</a>
+  </div>
+
+  <ul class="nav-links">
+
+    <li>
+      <a routerLink="/">Inicio</a>
+    </li>
+
+    <li>
+      <a routerLink="/restaurants">Restaurantes</a>
+    </li>
+
+    @if (!authService.isAuthenticated()) {
+
+      <li>
+        <a routerLink="/login">Login</a>
+      </li>
+
+      <li>
+        <a routerLink="/register">Registro</a>
+      </li>
+    }
+
+    @if (authService.isAuthenticated()) {
+
+      <li>
+        <a routerLink="/profile">Perfil</a>
+      </li>
+
+      <li>
+        <button class="logout-btn"
+          (click)="logout()">Logout</button>
+      </li>
+    }
+  </ul>
+</nav>

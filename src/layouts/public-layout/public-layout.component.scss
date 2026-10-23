@@ -1,0 +1,15 @@
+.layout {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 80px 1fr 80px;
+}
+
+.navbar {
+  display: flex;
+}
+
+.content {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}

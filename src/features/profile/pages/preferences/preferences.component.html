@@ -1,0 +1,65 @@
+<div class="preferences-container">
+
+  <h1>Preferencias</h1>
+
+  <form
+    [formGroup]="form"
+    (ngSubmit)="save()">
+
+    <label>
+
+      <input
+        type="checkbox"
+        formControlName="receiveNotifications">
+
+      Recibir notificaciones
+
+    </label>
+
+    <label>
+
+      Cocina favorita
+
+      <select
+        formControlName="favouriteCuisine">
+
+        <option>Italiana</option>
+        <option>Japonesa</option>
+        <option>Mexicana</option>
+        <option>Mediterránea</option>
+
+      </select>
+
+    </label>
+
+    <div class="theme-section">
+
+      <span>Modo oscuro</span>
+
+    <button
+      type="button"
+      class="theme-toggle"
+      [class.active]="themeService.isDarkMode()"
+      (click)="themeService.toggleTheme()">
+
+      <span class="toggle-thumb">
+
+        @if(themeService.isDarkMode()) {
+          🌙
+        } @else {
+          ☀️
+        }
+
+      </span>
+
+    </button>
+
+    </div>
+
+    <button type="submit">
+      Guardar preferencias
+    </button>
+
+  </form>
+
+</div>

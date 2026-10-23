@@ -1,0 +1,58 @@
+<h1>Reservar mesa</h1>
+
+@if(restaurant) {
+
+    <div class="restaurant-summary">
+
+        <h2>{{ restaurant.name }}</h2>
+        <p>{{ restaurant.city }}</p>
+        <p>{{ restaurant.openingHour }} - {{ restaurant.closingHour }}</p>
+
+    </div>
+
+}
+
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="form-group">
+
+        <label>Fecha</label>
+
+        <input
+            type="date"
+            formControlName="reservationDate">
+    </div>
+
+    <div class="form-group">
+
+        <label>Hora</label>
+
+        <select formControlName="reservationTime">
+
+            <option value="">Selecciona una hora</option>
+
+            @for (time of availableTimes; track time) {
+
+                <option [value]="time">{{ time }}</option>
+
+            }
+
+        </select>
+
+    </div>
+
+    <div class="form-group">
+
+        <label>Número de comensales</label>
+
+        <input
+            type="number"
+            min="1"
+            max="12"
+            formControlName="guests">
+    </div>
+
+    <button type="submit">Confirmar reserva</button>
+
+</form>

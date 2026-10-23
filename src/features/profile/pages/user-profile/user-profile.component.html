@@ -1,0 +1,31 @@
+<div class="profile-container">
+
+  <div class="profile-card">
+
+    <div class="avatar">{{ authService.currentUser()?.name?.charAt(0) }}</div>
+
+    <h1>{{ authService.currentUser()?.name }}</h1>
+
+    <p>{{ authService.currentUser()?.email }}</p>
+
+    <p class="role">{{ authService.currentUser()?.role }}</p>
+
+    <div class="actions">
+
+      <a
+        routerLink="/profile/edit"
+        class="btn-primary">
+        Editar perfil
+      </a>
+
+      <a
+        routerLink="/profile/preferences"
+        class="btn-secondary">
+        Preferencias
+      </a>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,24 @@
+<div class="layout">
+
+    <app-navbar class="navbar" />
+
+    <div class="private-container">
+
+        <aside class="sidebar">
+
+            <a routerLink="/profile">Mi perfil</a>
+            <a routerLink="/profile/preferences">Preferencias</a>
+            <a routerLink="/reservations">Mis reservas</a>
+            
+    
+        </aside>
+
+        <main class="content">
+            <router-outlet />
+        </main>
+
+    </div>
+
+    <app-footer class="footer"/>
+
+</div>
