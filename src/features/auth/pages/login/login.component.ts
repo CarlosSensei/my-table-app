@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
-import { RouterLink, Router } from '@angular/router';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
@@ -11,7 +11,6 @@ import { AuthService } from '../../../../core/services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-
 export class LoginComponent {
 
   private fb = inject(FormBuilder);
@@ -27,9 +26,12 @@ export class LoginComponent {
 
   onSubmit(): void {
 
+    this.errorMessage = '';
+
     if (this.loginForm.invalid) {
 
       this.loginForm.markAllAsTouched();
+
       return;
     }
 
@@ -37,12 +39,41 @@ export class LoginComponent {
     const password = this.loginForm.value.password ?? '';
     const success = this.authService.login(email, password);
 
-    if (success) {
-
-      this.router.navigate(['/']);
-    } else {
+    if (!success) {
 
       this.errorMessage = 'Email o contraseña incorrectos';
+
+      return;
     }
+
+    const user = this.authService.currentUser();
+
+    switch (user?.role) {
+
+      case 'OWNER':
+
+        this.router.navigate(['/owner/dashboard']);
+
+        break;
+
+      case 'ADMIN':
+
+        this.router.navigate(['/admin']);
+
+        break;
+
+      case 'CUSTOMER':
+
+        this.router.navigate(['/']);
+
+        break;
+
+      default:
+
+        this.router.navigate(['/']);
+
+    }
+
   }
+
 }

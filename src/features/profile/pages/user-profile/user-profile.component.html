@@ -1,31 +1,244 @@
-<div class="profile-container">
+@switch (user()?.role) {
 
-  <div class="profile-card">
+  @case('OWNER') {
 
-    <div class="avatar">{{ authService.currentUser()?.name?.charAt(0) }}</div>
+    <div class="profile-container">
 
-    <h1>{{ authService.currentUser()?.name }}</h1>
+      <section class="profile-hero">
 
-    <p>{{ authService.currentUser()?.email }}</p>
+        <div class="avatar">🏪</div>
 
-    <p class="role">{{ authService.currentUser()?.role }}</p>
+        <div class="user-info">
 
-    <div class="actions">
+          <h1>{{ user()?.name }}</h1>
 
-      <a
-        routerLink="/profile/edit"
-        class="btn-primary">
-        Editar perfil
-      </a>
+          <p>Gestiona tus restaurantes y las reservas de tus clientes.</p>
 
-      <a
-        routerLink="/profile/preferences"
-        class="btn-secondary">
-        Preferencias
-      </a>
+          <span class="role-badge">Propietario</span>
+
+        </div>
+
+      </section>
+
+      <section class="quick-actions">
+
+        <a
+          routerLink="/owner/dashboard"
+          class="action-card">
+
+          <span class="icon">📊</span>
+
+          <h3>Dashboard</h3>
+
+          <p>Consulta las métricas de tu negocio.</p>
+
+        </a>
+
+        <a
+          routerLink="/owner/restaurants"
+          class="action-card">
+
+          <span class="icon">🏪</span>
+
+          <h3>Mis Restaurantes</h3>
+
+          <p>Gestiona todos tus locales.</p>
+
+        </a>
+
+        <a
+          routerLink="/owner/restaurants/create"
+          class="action-card">
+
+          <span class="icon">➕</span>
+
+          <h3>Nuevo Restaurante</h3>
+
+          <p>Añade un nuevo restaurante.</p>
+
+        </a>
+
+        <a
+          routerLink="/profile/edit"
+          class="action-card">
+
+          <span class="icon">👤</span>
+
+          <h3>Perfil</h3>
+
+          <p>Actualiza tus datos personales.</p>
+
+        </a>
+
+        <a
+          routerLink="/profile/preferences"
+          class="action-card">
+
+          <span class="icon">⚙️</span>
+
+          <h3>Preferencias</h3>
+
+          <p>Configura tu experiencia.</p>
+
+        </a>
+
+      </section>
 
     </div>
 
-  </div>
+  }
 
-</div>
+  @case('ADMIN') {
+
+    <div class="profile-container">
+
+      <section class="profile-hero">
+
+        <div class="avatar">⚙️</div>
+
+        <div class="user-info">
+
+          <h1>Administrador</h1>
+
+          <p>Gestiona usuarios, restaurantes y el estado global de MyTableApp.</p>
+
+          <span class="role-badge">ADMIN</span>
+
+        </div>
+
+      </section>
+
+      <section class="quick-actions">
+
+        <a
+          routerLink="/admin"
+          class="action-card">
+
+          <span class="icon">📊</span>
+
+          <h3>Panel Admin</h3>
+
+          <p>Métricas y estadísticas globales.</p>
+
+        </a>
+
+        <a
+          routerLink="/users"
+          class="action-card">
+
+          <span class="icon">👥</span>
+
+          <h3>Usuarios</h3>
+
+          <p>Gestionar cuentas registradas.</p>
+
+        </a>
+
+        <a
+          routerLink="/restaurants"
+          class="action-card">
+
+          <span class="icon">🏪</span>
+
+          <h3>Restaurantes</h3>
+
+          <p>Supervisar todos los restaurantes.</p>
+
+        </a>
+
+        <a
+          routerLink="/profile/preferences"
+          class="action-card">
+
+          <span class="icon">⚙️</span>
+
+          <h3>Preferencias</h3>
+
+          <p>Configurar la aplicación.</p>
+
+        </a>
+
+      </section>
+
+    </div>
+
+  }
+
+  @case('CUSTOMER') {
+
+    <!-- Vista CUSTOMER -->
+
+    <div class="profile-container">
+
+      <section class="profile-hero">
+
+        <div class="avatar">👤</div>
+
+        <div class="user-info">
+
+          <h1>
+            Hola, {{ user()?.name }} 👋
+          </h1>
+
+          <p>
+            Gestiona tu cuenta y tus reservas.
+          </p>
+
+          <span class="role-badge">
+            CUSTOMER
+          </span>
+
+        </div>
+
+      </section>
+
+      <section class="quick-actions">
+
+        <a
+          routerLink="/reservations"
+          class="action-card">
+
+          <span class="icon">🍽️</span>
+
+          <h3>Mis Reservas</h3>
+
+          <p>
+            Consulta tus próximas reservas.
+          </p>
+
+        </a>
+
+        <a
+          routerLink="/profile/edit"
+          class="action-card">
+
+          <span class="icon">👤</span>
+
+          <h3>Editar Perfil</h3>
+
+          <p>
+            Actualiza tus datos personales.
+          </p>
+
+        </a>
+
+        <a
+          routerLink="/profile/preferences"
+          class="action-card">
+
+          <span class="icon">⚙️</span>
+
+          <h3>Preferencias</h3>
+
+          <p>
+            Configura tu experiencia.
+          </p>
+
+        </a>
+
+      </section>
+
+    </div>
+
+  }
+}

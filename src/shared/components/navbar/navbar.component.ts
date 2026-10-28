@@ -12,7 +12,7 @@ import { AuthService } from '../../../core/services/auth.service';
 
 export class NavbarComponent {
 
-  authService = inject(AuthService);
+  private authService = inject(AuthService);
   private router = inject(Router);
 
   logout(): void {

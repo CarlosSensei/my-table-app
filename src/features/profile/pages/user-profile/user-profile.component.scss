@@ -1,41 +1,202 @@
-.profile-container {
-  display: flex;
-  justify-content: center;
-  padding: 3rem;
+:host {
+  display: block;
+
+  width: 100%;
+
+  padding: 2rem;
+
+  background: var(--background);
 }
 
-.profile-card {
-  width: 100%;
-  max-width: 500px;
-  background: var(--card-background);
+.profile-container {
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+.profile-hero {
+  display: flex;
+  align-items: center;
+
+  gap: 2rem;
+
   padding: 2rem;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,.08);
+
+  margin-bottom: 2rem;
+
+  background: var(--card-background);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .avatar {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto 1rem;
-  border-radius: 50%;
+  width: 110px;
+  height: 110px;
+
+  min-width: 110px;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+  border-radius: 50%;
+
   background: var(--primary-color);
-  color: var(--text-contrast);
+
+  color: white;
+
+  font-size: 3rem;
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 20px rgba(249, 115, 22, 0.25);
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-info h1 {
+  margin: 0 0 .75rem;
+
+  color: var(--text-normal);
+
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 700;
 }
 
-.role {
+.user-info p {
+  margin: 0 0 1rem;
+
   color: var(--subtitle);
-  margin-top: .5rem;
+
+  font-size: 1rem;
+
+  line-height: 1.6;
 }
 
-.actions {
-  display: flex;
-  gap: 1rem;
+.role-badge {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  margin-top: 2rem;
+
+  padding: .5rem 1rem;
+
+  border-radius: 999px;
+
+  background: var(--primary-color);
+
+  color: white;
+
+  font-weight: 600;
+
+  font-size: .85rem;
+
+  text-transform: uppercase;
+}
+
+.quick-actions {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+  gap: 1.5rem;
+}
+
+.action-card {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 260px;
+
+  padding: 2rem;
+
+  text-decoration: none;
+
+  background: var(--card-background);
+
+  border-radius: 20px;
+
+  color: inherit;
+
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, .08);
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.action-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, .12);
+}
+
+.icon {
+  width: 72px;
+  height: 72px;
+
+  margin-bottom: 1.25rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: var(--background-smooth);
+
+  font-size: 2rem;
+}
+
+.action-card h3 {
+  margin: 0 0 .75rem;
+
+  color: var(--text-normal);
+
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.action-card p {
+  margin: 0;
+
+  color: var(--subtitle);
+
+  line-height: 1.6;
+
+  flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+
+  :host {
+    padding: 1rem;
+  }
+
+  .profile-hero {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .avatar {
+    width: 90px;
+    height: 90px;
+
+    min-width: 90px;
+
+    font-size: 2.3rem;
+  }
+
+  .user-info h1 {
+    font-size: 1.6rem;
+  }
+
 }

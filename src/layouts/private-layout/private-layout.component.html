@@ -1,24 +1,87 @@
 <div class="layout">
 
-    <app-navbar class="navbar" />
+  <app-navbar class="navbar" />
 
-    <div class="private-container">
+  <div class="private-container">
 
-        <aside class="sidebar">
+    <aside class="sidebar">
 
-            <a routerLink="/profile">Mi perfil</a>
-            <a routerLink="/profile/preferences">Preferencias</a>
-            <a routerLink="/reservations">Mis reservas</a>
-            
-    
-        </aside>
+      @switch(authService.currentUser()?.role) {
 
-        <main class="content">
-            <router-outlet />
-        </main>
+        @case('OWNER') {
 
-    </div>
+          <a routerLink="/owner/dashboard">
+            📊 Dashboard
+          </a>
 
-    <app-footer class="footer"/>
+          <a routerLink="/owner/restaurants">
+            🏪 Mis Restaurantes
+          </a>
+
+          <a routerLink="/owner/restaurants/create">
+            ➕ Nuevo Restaurante
+          </a>
+
+          <a routerLink="/profile">
+            👤 Mi Perfil
+          </a>
+
+          <a routerLink="/profile/preferences">
+            ⚙️ Preferencias
+          </a>
+
+        }
+
+        @case('ADMIN') {
+
+          <a routerLink="/admin">
+            🛠️ Panel Admin
+          </a>
+
+          <a routerLink="/users">
+            👥 Usuarios
+          </a>
+
+          <a routerLink="/restaurants">
+            🏪 Restaurantes
+          </a>
+
+          <a routerLink="/profile">
+            👤 Mi Perfil
+          </a>
+
+          <a routerLink="/profile/preferences">
+            ⚙️ Preferencias
+          </a>
+
+        }
+
+        @default {
+
+          <a routerLink="/profile">
+            👤 Mi Perfil
+          </a>
+
+          <a routerLink="/profile/preferences">
+            ⚙️ Preferencias
+          </a>
+
+          <a routerLink="/reservations">
+            🍽️ Mis Reservas
+          </a>
+
+        }
+
+      }
+
+    </aside>
+
+    <main class="content">
+      <router-outlet />
+    </main>
+
+  </div>
+
+  <app-footer class="footer" />
 
 </div>

@@ -4,37 +4,150 @@
     <a routerLink="/">MyTableApp</a>
   </div>
 
-  <ul class="nav-links">
+  <div class="nav-right">
+    <ul class="nav-links">
 
-    <li>
-      <a routerLink="/">Inicio</a>
-    </li>
+      @if(authService.isAuthenticated()) {
 
-    <li>
-      <a routerLink="/restaurants">Restaurantes</a>
-    </li>
+        @switch(authService.currentUser()?.role) {
 
-    @if (!authService.isAuthenticated()) {
+          @case('OWNER') {
 
-      <li>
-        <a routerLink="/login">Login</a>
-      </li>
+            <li>
+              <a routerLink="/owner/dashboard">
+                Dashboard
+              </a>
+            </li>
 
-      <li>
-        <a routerLink="/register">Registro</a>
-      </li>
-    }
+            <li>
+              <a routerLink="/owner/restaurants">
+                Mis Restaurantes
+              </a>
+            </li>
 
-    @if (authService.isAuthenticated()) {
+            <li>
+              <a routerLink="/owner/restaurants/create">
+                Nuevo Restaurante
+              </a>
+            </li>
 
-      <li>
-        <a routerLink="/profile">Perfil</a>
-      </li>
+          }
 
-      <li>
-        <button class="logout-btn"
-          (click)="logout()">Logout</button>
-      </li>
-    }
-  </ul>
+          @case('ADMIN') {
+
+            <li>
+              <a routerLink="/admin">
+                Admin Panel
+              </a>
+            </li>
+
+            <li>
+              <a routerLink="/restaurants">
+                Restaurantes
+              </a>
+            </li>
+
+            <li>
+              <a routerLink="/users">
+                Usuarios
+              </a>
+            </li>
+
+          }
+
+          @case('CUSTOMER') {
+
+            <li>
+              <a routerLink="/">
+                Inicio
+              </a>
+            </li>
+
+            <li>
+              <a routerLink="/restaurants">
+                Restaurantes
+              </a>
+            </li>
+
+          }
+
+        }
+
+        <li>
+          <a routerLink="/profile">
+            Perfil
+          </a>
+        </li>
+
+        <li>
+          <button
+            class="logout-btn"
+            (click)="logout()">
+
+            Cerrar sesión
+
+          </button>
+        </li>
+
+      }
+
+      @else {
+
+        <li>
+          <a routerLink="/restaurants">
+            Restaurantes
+          </a>
+        </li>
+
+        <li>
+          <a routerLink="/login">
+            Login
+          </a>
+        </li>
+
+        <li>
+          <a routerLink="/register">
+            Registro
+          </a>
+        </li>
+
+      }
+
+    </ul>
+  </div>
+
+  @if(authService.isAuthenticated()) {
+
+    <div class="user-badge">
+
+      {{ authService.currentUser()?.name }}
+
+      @if(authService.currentUser()?.role === 'OWNER') {
+
+        <span class="role-badge">
+          OWNER
+        </span>
+
+      }
+
+      @if(authService.currentUser()?.role === 'ADMIN') {
+
+        <span class="role-badge">
+          ADMIN
+        </span>
+
+      }
+
+      @if(authService.currentUser()?.role === 'CUSTOMER') {
+
+        <span class="role-badge">
+          CUSTOMER
+        </span>
+
+      }
+
+    </div>
+
+  }
+
 </nav>

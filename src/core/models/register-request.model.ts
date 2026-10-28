@@ -3,4 +3,5 @@ export interface RegisterRequest {
   surname: string;
   email: string;
   password: string;
+  role: 'CUSTOMER' | 'OWNER';
 }

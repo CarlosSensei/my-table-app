@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../../core/services/auth.service';
 
@@ -12,5 +12,7 @@ import { AuthService } from '../../../../core/services/auth.service';
 export class UserProfileComponent {
 
   authService = inject(AuthService);
+
+  user = computed(() => this.authService.currentUser());
 
 }

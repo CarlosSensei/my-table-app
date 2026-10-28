@@ -112,6 +112,49 @@
         }
       </div>
 
+      <div class="role-selector">
+
+        <label>Tipo de cuenta</label>
+
+        <div class="role-options">
+
+          <label class="role-card"
+            [class.selected]="registerForm.value.role === 'CUSTOMER'">
+
+            <input
+              type="radio"
+              formControlName="role"
+              value="CUSTOMER">
+
+            <span class="icon">🍽️</span>
+
+            <h3>Cliente</h3>
+
+            <p>Reserva mesas en tus restaurantes favoritos.</p>
+
+          </label>
+
+          <label
+            class="role-card"
+            [class.selected]="registerForm.value.role === 'OWNER'">
+
+            <input
+              type="radio"
+              formControlName="role"
+              value="OWNER">
+
+            <span class="icon">🏪</span>
+
+            <h3>Propietario</h3>
+
+            <p>Gestiona tus restaurantes y reservas.</p>
+
+          </label>
+
+        </div>
+
+      </div>
+
       <button type="submit" class="btn-register">Crear cuenta</button>
     </form>
 

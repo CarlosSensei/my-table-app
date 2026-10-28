@@ -1,0 +1,149 @@
+:host {
+  display: block;
+  min-height: 100%;
+  padding: 2rem;
+  background: var(--background);
+}
+
+.create-restaurant-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  margin: 0 0 .5rem;
+  color: var(--text-normal);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.page-header p {
+  margin: 0;
+  color: var(--subtitle);
+  font-size: 1rem;
+}
+
+form {
+  background: var(--card-background);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: .5rem;
+  color: var(--text-normal);
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: .9rem 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 12px;
+  outline: none;
+  background: var(--card-background);
+  color: var(--text-normal);
+  font-size: 1rem;
+  transition:
+    border-color .3s ease,
+    box-shadow .3s ease,
+    transform .2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.full-width {
+  margin-top: 1.5rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-size: .95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform .3s ease,
+    background-color .3s ease;
+}
+
+.primary-btn {
+  background: var(--primary-color);
+  color: var(--text-contrast);
+}
+
+.primary-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  background: var(--background-smooth);
+  color: var(--text-normal);
+}
+
+.secondary-btn:hover {
+  transform: translateY(-2px);
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border-color: var(--error);
+}
+
+@media (max-width: 768px) {
+
+  :host {
+    padding: 1rem;
+  }
+
+  form {
+    padding: 1.5rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+
+}

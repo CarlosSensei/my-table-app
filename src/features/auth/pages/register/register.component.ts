@@ -50,6 +50,10 @@ export class RegisterComponent {
         [
           Validators.required
         ]
+      ],
+      role: [
+        'CUSTOMER',
+        Validators.required
       ]
     },
     {

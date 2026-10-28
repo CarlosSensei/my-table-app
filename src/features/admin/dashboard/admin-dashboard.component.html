@@ -1,0 +1,80 @@
+<div class="dashboard">
+
+  <div class="dashboard-header">
+
+    <h1>Panel de Administración</h1>
+    <p>Supervisa la actividad global de MyTableApp.</p>
+
+  </div>
+
+  <section class="stats-grid">
+
+    <div class="stat-card">
+
+      <div class="stat-icon">👥</div>
+      <h2>{{ usersCount() }}</h2>
+      <p>Usuarios registrados</p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <div class="stat-icon">🏪</div>
+      <h2>{{ restaurantsCount() }}</h2>
+      <p>Restaurantes</p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <div class="stat-icon">📅</div>
+      <h2>{{ reservationsCount() }}</h2>
+      <p>Reservas</p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <div class="stat-icon">⭐</div>
+      <h2>4.8</h2>
+      <p>Valoración media</p>
+
+    </div>
+
+  </section>
+
+  <section class="quick-actions">
+
+    <a
+      routerLink="/users"
+      class="action-card">
+
+      <span>👥</span>
+      <h3>Usuarios</h3>
+      <p>Gestionar cuentas registradas.</p>
+
+    </a>
+
+    <a
+      routerLink="/restaurants"
+      class="action-card">
+
+      <span>🏪</span>
+      <h3>Restaurantes</h3>
+      <p>Supervisar restaurantes.</p>
+
+    </a>
+
+    <a
+      routerLink="/profile/preferences"
+      class="action-card">
+
+      <span>⚙️</span>
+      <h3>Configuración</h3>
+      <p>Ajustes generales del sistema.</p>
+
+    </a>
+
+  </section>
+
+</div>
